@@ -31,6 +31,7 @@ export const config = createConfig(
           ? `https://base-mainnet.g.alchemy.com/v2/${alchemyApiKey}`
           : undefined,
       ),
+      [celo.id]: http("https://forno.celo.org"),
     },
   }),
 );
