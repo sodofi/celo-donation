@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { DaimoPayTransferButton } from "~/components/daimo-pay-transfer-button";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 
 const PRESET_AMOUNTS = [5, 10, 25, 50];
 const RECIPIENT_ADDRESS = "0x742d35Cc6A17c5E1b2E5f85e5C4EAab7a7a623aA" as `0x${string}`;
@@ -23,61 +22,118 @@ export default function DonationApp() {
 
   if (showThankYou) {
     return (
-      <div className="w-full max-w-md mx-auto px-4">
-        <Card className="text-center">
-          <CardHeader>
-            <CardTitle className="text-2xl text-green-600">Thank You!</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-lg">
-              Your donation of ${lastDonationAmount} USDC is greatly appreciated!
-            </p>
-            <p className="text-muted-foreground">
-              Your support helps keep this community thriving.
-            </p>
+      <div className="min-h-screen bg-celo-purple flex flex-col">
+        {/* Header Block */}
+        <div className="bg-celo-yellow h-32 flex items-center justify-start pl-8">
+          <h1 className="font-gt-alpina text-6xl font-thin text-celo-purple italic tracking-tight">
+            Thank You
+          </h1>
+        </div>
+
+        {/* Content Block */}
+        <div className="flex-1 bg-celo-purple p-8 flex flex-col justify-center space-y-12">
+          <div className="bg-white p-8 border-4 border-black">
+            <div className="space-y-6">
+              <div className="font-inter font-750 text-2xl text-black tracking-wide">
+                YOUR DONATION OF ${lastDonationAmount} USDC
+              </div>
+              <div className="font-inter text-lg text-celo-brown font-medium">
+                Transaction completed on Celo network. Your support strengthens our community infrastructure.
+              </div>
+              <div className="bg-celo-tan-light p-4 border-2 border-celo-brown font-inter text-sm font-mono text-celo-brown">
+                RECIPIENT: {RECIPIENT_ADDRESS.slice(0, 16)}...{RECIPIENT_ADDRESS.slice(-8)}
+              </div>
+            </div>
+          </div>
+
+          {/* Action Block */}
+          <div className="bg-celo-green p-6 border-4 border-celo-yellow">
             <button
               onClick={() => setShowThankYou(false)}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md transition-colors"
+              className="w-full bg-black text-celo-yellow font-inter font-750 text-xl py-4 px-8 hover:bg-celo-yellow hover:text-black transition-colors duration-200 border-2 border-celo-yellow"
             >
-              Make Another Donation
+              MAKE ANOTHER DONATION
             </button>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-center text-2xl">Support Our Community</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="text-center space-y-2">
-            <p className="text-muted-foreground">
-              Choose an amount to donate with USDC on Celo
-            </p>
-            <div className="text-sm bg-muted p-2 rounded-md font-mono break-all">
+    <div className="min-h-screen bg-celo-tan-light">
+      {/* Asymmetrical Header */}
+      <div className="bg-celo-purple h-40 flex items-end justify-start pl-12 pb-8">
+        <h1 className="font-gt-alpina text-7xl font-thin text-celo-yellow italic tracking-tighter leading-none">
+          Support Our
+        </h1>
+      </div>
+      
+      <div className="bg-celo-green h-24 flex items-center justify-end pr-12">
+        <h2 className="font-gt-alpina text-5xl font-thin text-white tracking-tight">
+          Community
+        </h2>
+      </div>
+
+      {/* Content Blocks */}
+      <div className="p-8 space-y-8">
+        {/* Instructions Block */}
+        <div className="bg-white p-8 border-4 border-black">
+          <div className="space-y-4">
+            <div className="font-inter font-750 text-xl text-black tracking-wide">
+              DONATE USDC ON CELO NETWORK
+            </div>
+            <div className="font-inter text-base text-celo-brown font-medium">
+              Direct community support via decentralized payments. Choose your contribution amount below.
+            </div>
+          </div>
+        </div>
+
+        {/* Address Block */}
+        <div className="bg-celo-yellow p-6 border-4 border-celo-purple">
+          <div className="space-y-3">
+            <div className="font-inter font-750 text-sm text-celo-purple tracking-widest">
+              RECIPIENT WALLET
+            </div>
+            <div className="font-inter font-mono text-lg text-celo-purple break-all bg-white p-3 border-2 border-celo-purple">
               {RECIPIENT_ADDRESS}
             </div>
           </div>
-          
-          <div className="grid grid-cols-2 gap-3">
-            {PRESET_AMOUNTS.map((amount) => (
-              <DaimoPayTransferButton
-                key={amount}
-                text={`$${amount} USDC`}
-                amount={amount.toString()}
-                toAddress={RECIPIENT_ADDRESS}
-                tokenAddress={CELO_USDC_ADDRESS}
-                toChainId={42220}
-                onPaymentCompleted={() => handleDonationSuccess(amount)}
-              />
+        </div>
+
+        {/* Payment Grid */}
+        <div className="space-y-6">
+          <div className="font-inter font-750 text-2xl text-celo-purple tracking-wide">
+            SELECT AMOUNT
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+            {PRESET_AMOUNTS.map((amount, index) => (
+              <div key={amount} className={`${
+                index === 0 ? 'bg-celo-accent-lime border-celo-green' :
+                index === 1 ? 'bg-celo-accent-orange border-celo-brown' :
+                index === 2 ? 'bg-celo-accent-pink border-celo-purple' :
+                'bg-celo-accent-blue border-celo-purple'
+              } p-1 border-4`}>
+                <DaimoPayTransferButton
+                  text={`$${amount} USDC`}
+                  amount={amount.toString()}
+                  toAddress={RECIPIENT_ADDRESS}
+                  tokenAddress={CELO_USDC_ADDRESS}
+                  toChainId={42220}
+                  onPaymentCompleted={() => handleDonationSuccess(amount)}
+                />
+              </div>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+
+        {/* Footer Block */}
+        <div className="bg-celo-brown p-6 border-4 border-black">
+          <div className="font-inter text-white font-medium text-sm tracking-wide">
+            POWERED BY CELO BLOCKCHAIN • DAIMO PAY INTEGRATION • INSTANT SETTLEMENT
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

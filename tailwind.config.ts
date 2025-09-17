@@ -9,9 +9,32 @@ export default {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        'gt-alpina': ['GT Alpina', 'serif'],
+        'inter': ['Inter', 'sans-serif'],
+      },
+      fontWeight: {
+        '750': '750',
+      },
   		colors: {
   			background: 'var(--background)',
   			foreground: 'var(--foreground)',
+        celo: {
+          yellow: '#FCFF52',
+          green: '#4E632A', 
+          purple: '#1A0329',
+          tan: {
+            light: '#FBF6F1',
+            medium: '#E6E3D5',
+          },
+          brown: '#635949',
+          accent: {
+            pink: '#F2A9E7',
+            orange: '#F29E5F',
+            lime: '#B2EBA1',
+            blue: '#8AC0F9',
+          }
+        },
   			sidebar: {
   				DEFAULT: 'hsl(var(--sidebar-background))',
   				foreground: 'hsl(var(--sidebar-foreground))',

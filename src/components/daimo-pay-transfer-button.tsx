@@ -3,7 +3,6 @@
 import { DaimoPayButton } from "@daimo/pay";
 import { baseUSDC } from "@daimo/contract";
 import { getAddress } from "viem";
-import { Button } from "~/components/ui/button";
 
 export function DaimoPayTransferButton({
   text,
@@ -23,7 +22,7 @@ export function DaimoPayTransferButton({
   onPaymentCompleted?: () => void;
 }) {
   return (
-    <div className="flex justify-center text-xl font-bold rounded-lg shadow-lg">
+    <div className="w-full">
       <DaimoPayButton.Custom
         appId={process.env.NEXT_PUBLIC_DAIMO_PAY_KEY || "pay-demo"}
         toChain={toChainId || baseUSDC.chainId}
@@ -41,9 +40,12 @@ export function DaimoPayTransferButton({
         closeOnSuccess
       >
         {({ show: showDaimoModal }) => (
-          <Button className="w-full" size="lg" onClick={() => showDaimoModal()}>
+          <button
+            onClick={() => showDaimoModal()}
+            className="w-full bg-black text-white font-inter font-750 text-lg py-6 px-4 border-4 border-black hover:bg-white hover:text-black hover:border-black transition-colors duration-200 tracking-wide"
+          >
             {text}
-          </Button>
+          </button>
         )}
       </DaimoPayButton.Custom>
     </div>
