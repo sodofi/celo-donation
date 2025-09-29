@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { DaimoPayTransferButton } from "~/components/daimo-pay-transfer-button";
 
-const PRESET_AMOUNTS = [5, 10, 25, 50];
-const RECIPIENT_ADDRESS = "0x742d35Cc6A17c5E1b2E5f85e5C4EAab7a7a623aA" as `0x${string}`;
+const PRESET_AMOUNTS = [1, 2, 5, 10];
+const RECIPIENT_ADDRESS = "0x4858aBb6dfF69904f1c155D40A48CD8846AEA2f6" as `0x${string}`;
 const CELO_USDC_ADDRESS = "0xcebA9300f2b948710d2653dD7B07f33A8B32118C" as `0x${string}`;
 
 export default function DonationApp() {
@@ -64,16 +64,16 @@ export default function DonationApp() {
     <div className="min-h-screen bg-celo-tan-light">
       {/* Asymmetrical Header */}
       <div className="bg-celo-purple h-40 flex items-end justify-start pl-12 pb-8">
-        <h1 className="font-gt-alpina text-7xl font-thin text-celo-yellow italic tracking-tighter leading-none">
-          Support Our
+        <h1 className="font-gt-alpina text-5xl font-thin text-celo-yellow italic tracking-tighter leading-none">
+          Support Our Community
         </h1>
       </div>
       
-      <div className="bg-celo-green h-24 flex items-center justify-end pr-12">
+      {/* <div className="bg-celo-green h-24 flex items-center justify-end pr-12">
         <h2 className="font-gt-alpina text-5xl font-thin text-white tracking-tight">
           Community
         </h2>
-      </div>
+      </div> */}
 
       {/* Content Blocks */}
       <div className="p-8 space-y-8">
