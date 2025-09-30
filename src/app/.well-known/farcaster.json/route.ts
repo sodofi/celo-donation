@@ -19,8 +19,8 @@ export async function GET() {
         "header": "eyJmaWQiOjEwNjEwLCJ0eXBlIjoiYXV0aCIsImtleSI6IjB4NzA3RDlERWZDM0M2NjIwNjk2NTk0YTAxOTNkNTI3M2NEZmI5RWRBMyJ9",
         "payload": "eyJkb21haW4iOiJjZWxvLWRvbmF0aW9uLnZlcmNlbC5hcHAifQ",
         "signature": "ws4HIVkGpq5I7MqQpIlEMNDDnEQbVSXptzR3Q9EeOM4LIFWG2jv4tqvmxS9XAtYICvfieBjjIxiYl+CurQU68Rs="
-      }
-    }
+      },
+    //}
     miniapp: {
       version: "1",
       name: PROJECT_TITLE,
