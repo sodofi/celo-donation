@@ -1,5 +1,5 @@
-export const PROJECT_TITLE = "HappyWaves";
-export const PROJECT_DESCRIPTION = "Spread joy and positivity through the Farcaster ecosystem";
+export const PROJECT_TITLE = "Celo Donations";
+export const PROJECT_DESCRIPTION = "Send donations with USDC on Celo";
 export const PROJECT_CREATOR = "sophia";
 export const PROJECT_AVATAR_URL =
   "https://wrpcd.net/cdn-cgi/imagedelivery/BXluQx4ige9GuW0Ia56BHw/37460dae-996e-481a-9c2c-0374da719400/anim=false,fit=contain,f=auto,w=576";
