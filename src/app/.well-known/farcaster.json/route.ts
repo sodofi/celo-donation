@@ -6,14 +6,21 @@ export async function GET() {
     `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
 
   const config = {
-    accountAssociation: {
-      header:
-        "eyJmaWQiOjg2OTk5OSwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDc2ZDUwQjBFMTQ3OWE5QmEyYkQ5MzVGMUU5YTI3QzBjNjQ5QzhDMTIifQ",
-      payload:
-        "eyJkb21haW4iOiJzb3BoaWEtaGFwcHl3YXZlcy52ZXJjZWwuYXBwIn0",
-      signature:
-        "MHhmZDNlN2JiNTRkMTNlYmZhM2I1MzlmYTkzZGYxNDA2MzczNjlmMTNjYzMwMGE5NTYwYTY2MDQxYjlmNjBkM2VmMDljY2U4ZDRmZjA0NjQzNWFmNzhhNjIyYmVjMzI2MTllNjYyNGViNmY1OGU3OTkwYTE5MzMyYzE3NGYwNDdkMjFi",
-    },
+    // accountAssociation: {
+    //   header:
+    //     "eyJmaWQiOjg2OTk5OSwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDc2ZDUwQjBFMTQ3OWE5QmEyYkQ5MzVGMUU5YTI3QzBjNjQ5QzhDMTIifQ",
+    //   payload:
+    //     "eyJkb21haW4iOiJzb3BoaWEtaGFwcHl3YXZlcy52ZXJjZWwuYXBwIn0",
+    //   signature:
+    //     "MHhmZDNlN2JiNTRkMTNlYmZhM2I1MzlmYTkzZGYxNDA2MzczNjlmMTNjYzMwMGE5NTYwYTY2MDQxYjlmNjBkM2VmMDljY2U4ZDRmZjA0NjQzNWFmNzhhNjIyYmVjMzI2MTllNjYyNGViNmY1OGU3OTkwYTE5MzMyYzE3NGYwNDdkMjFi",
+    // },
+    //{
+      "accountAssociation": {
+        "header": "eyJmaWQiOjEwNjEwLCJ0eXBlIjoiYXV0aCIsImtleSI6IjB4NzA3RDlERWZDM0M2NjIwNjk2NTk0YTAxOTNkNTI3M2NEZmI5RWRBMyJ9",
+        "payload": "eyJkb21haW4iOiJjZWxvLWRvbmF0aW9uLnZlcmNlbC5hcHAifQ",
+        "signature": "ws4HIVkGpq5I7MqQpIlEMNDDnEQbVSXptzR3Q9EeOM4LIFWG2jv4tqvmxS9XAtYICvfieBjjIxiYl+CurQU68Rs="
+      }
+    }
     miniapp: {
       version: "1",
       name: PROJECT_TITLE,
